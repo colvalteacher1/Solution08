@@ -26,6 +26,20 @@ namespace Solution08.Controllers
             return View(new Category());
         }
 
-        //POST: Create à compléter
+        //POST : après la soumission du formulaire
+        [HttpPost]
+        public IActionResult CreateConfirmed(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                //traitement
+                _context.Categories.Add(category);
+                _context.SaveChanges(); //le commit dans la DB
+                return RedirectToAction(nameof(Index));
+            }
+
+            //en cas d'erreur
+            return View(category);
+        }
     }
 }
