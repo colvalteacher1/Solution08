@@ -1,0 +1,22 @@
+@model IEnumerable<Solution08.Models.Category>
+@{
+    ViewData["Title"] = "Catégories";
+}
+<h2>Catégories</h2>
+<p><a asp-action="Create" class="btn btn-outline-success">+ Nouvelle catégorie</a></p>
+<table class="table">
+    <thead>
+        <tr><th>Nom</th><th>Items</th><th></th></tr>
+    </thead>
+    <tbody>
+@foreach (var c in Model)
+{
+    <tr>
+        <td>@c.Name</td>
+        <td>@(c.Items?.Count ?? 0)</td>
+        <td>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+@model Solution08.Models.Item
+@{
+    ViewData["Title"] = "Créer un item";
+}
+<h2>Créer un item</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PublicationYear"></label>
+        <input asp-for="PublicationYear" class="form-control" />
+        <span asp-validation-for="PublicationYear" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PageCount"></label>
+        <input asp-for="PageCount" class="form-control" />
+        <span asp-validation-for="PageCount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId">Catégorie</label>
+
+        <select asp-for="CategoryId"
+                asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))"
+                class="form-control">
+            <option value="">-- Sélectionner une catégorie --</option>
+        </select>
+
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-outline-primary">Enregistrer</button>
+    <a asp-action="Index">Annuler</a>
+</form>

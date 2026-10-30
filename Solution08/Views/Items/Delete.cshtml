@@ -1,0 +1,11 @@
+@model Solution08.Models.Item
+@{
+    ViewData["Title"] = "Supprimer";
+}
+<h2>Supprimer</h2>
+<p>Confirmer la suppression de <strong>@Model.Title</strong> ?</p>
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-outline-danger">Supprimer</button>
+    <a asp-action="Index">Annuler</a>
+</form>

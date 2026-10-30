@@ -1,0 +1,25 @@
+
+@{
+    ViewData["Title"] = "Accueil";
+}
+<h1>Inventaire de bibliothèque numérique</h1>
+<p>Projet de travail pour les exercices 08 — Validation & Liaison de modèle</p>
+<div class="cards">
+    <div class="card" style="width: 18rem;">
+        <div class="card-img-top d-flex align-items-center justify-content-center bg-light" style="height: 140px;">
+            <i class="bi bi-bookmarks display-4 text-primary"></i>
+        </div>
+        <div class="card-body">
+            <a class="btn btn-primary" asp-controller="Items" asp-action="Index">Gérer les Items</a>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-img-top d-flex align-items-center justify-content-center bg-light" style="height: 140px;">
+            <i class="bi bi-disc display-4 text-primary"></i>
+        </div>
+        <div class="card-body">
+            <a class="btn btn-primary" asp-controller="Categories" asp-action="Index">Gérer les catégories</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+@model IEnumerable<Solution08.Models.Item>
+@{
+    ViewData["Title"] = "Items";
+}
+<h2>Items</h2>
+<p><a asp-action="Create" class="btn btn-outline-success">+ Nouvel item</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Type</th>
+            <th>Catégorie</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var i in Model)
+{
+    <tr>
+        <td>@i.Title</td>
+        <td>@i.Category?.Name</td>
+        <td>
+            <a asp-action="Details" asp-route-id="@i.Id">Détails</a> |
+            <a asp-action="Edit" asp-route-id="@i.Id">Modifier</a> |
+            <a asp-action="Delete" asp-route-id="@i.Id">Supprimer</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

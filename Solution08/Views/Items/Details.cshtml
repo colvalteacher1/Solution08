@@ -1,0 +1,16 @@
+@model Solution08.Models.Item
+@{
+    ViewData["Title"] = "Détails";
+}
+<h2>@Model.Title</h2>
+<dl>
+    <dt>Catégorie</dt><dd>@Model.Category?.Name</dd>
+    <dt>Année</dt><dd>@Model.PublicationYear</dd>
+    <dt>Pages</dt><dd>@Model.PageCount</dd>
+    <dt>Prix</dt><dd>@Model.Price</dd>
+    <dt>Description</dt><dd>@Model.Description</dd>
+</dl>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Modifier</a> |
+    <a asp-action="Index">Retour</a>
+</p>
