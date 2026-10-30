@@ -71,6 +71,9 @@ namespace Solution08.Controllers
                 _context.SaveChanges(); //le commit dans la DB
                 return RedirectToAction(nameof(Index));
             }
+
+            //en cas d'erreur
+            ViewBag.Categories = _context.Categories.ToList();
             return View(item);
         }
 
@@ -80,10 +83,25 @@ namespace Solution08.Controllers
             var item = _context.Items.Find(id);
             if (item == null)
                 return NotFound();
+
+            ViewBag.Categories = _context.Categories.ToList();
             return View(item);
         }
 
         //POST : Edit à compléter
+        [HttpPost]
+        public IActionResult EditConfirmed(Item item)
+        {
+            if (ModelState.IsValid)
+            {
+                //traitement
+                _context.Items.Update(item);
+                _context.SaveChanges(); //le commit dans la DB
+                return RedirectToAction(nameof(Index));
+            }
 
+            ViewBag.Categories = _context.Categories.ToList();
+            return View(item);
+        }
     }
 }
